@@ -24,8 +24,16 @@ int main()
             float Xo=0, Vo=20, Ang_o=50; //Datos enviado por el espia defensor
             int soluciones=0;
             //Calculos
-            for(float i=0;;i++){
-                for(float j=0;;j++)
+            for(int i=0;i<100;i++){
+                for(int j=0;j<100;j++){
+                    for(int t=0;t<100;t++){
+                        for(int ang=1;ang<90;ang++){
+                            int calculo_x=i+j*cos(ang)*t;
+                            int dist=0.02*distancia;
+                            if (calculo_x ||
+                        }
+                    }
+                }
             }
         }
 
