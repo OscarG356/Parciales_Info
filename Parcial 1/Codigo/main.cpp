@@ -20,8 +20,8 @@ int main()
         switch(simulacion){
         case 1:{
             //Datos apropiados
-            float distancia=45,altura=4.4; //Posicion del cañon
-            float Xo=0, Vo=20, Ang_o=50; //Datos enviado por el espia defensor
+            float distancia=45,altura=4.4; //Posicion del cañon defensor
+//            float lanzamiento_enemigo[3]={0.0,20.0,50.0}; //Datos enviado por el espia defensor
             int soluciones=0;
             //Calculos
             for(int i=0;i<100;i++){
@@ -29,8 +29,9 @@ int main()
                     for(int t=0;t<100;t++){
                         for(int ang=1;ang<90;ang++){
                             int calculo_x=i+j*cos(ang)*t;
-                            int dist=0.02*distancia;
-                            if (calculo_x ||
+                            int dist=0.05*distancia;
+                            float rang_h=distancia-dist;
+                            if (calculo_x+dist ||
                         }
                     }
                 }
