@@ -6,7 +6,7 @@ using namespace std;
 bool simulando=true;
 int main()
 {
-    while(simulanado){
+    while(simulando){
         int simulacion=0;
         cout<<"*******Bienvenido a la simulacion*******"<<endl;
         cout<<"1) Generar disparos tres ofensivos que comprometan la integridad del cañón defensivo."<<endl;
@@ -16,9 +16,17 @@ int main()
         cout<<"0) Salir del simulador"<<endl;
         cin>>simulacion;
         //Una vez se haya un lanzamiento enemiga
-        float Xo=0, Vo=0, Ang_o=0; //Datos enviado por el espia defensor
-        switch{
+        float Xo=0, Vo=0, Ang_o=0,distancia=0; //Datos enviado por el espia defensor
+        switch(simulacion){
+        case 1:{
+            //Datos apropiados
+            distancia = 45;
 
+            //Calculos
+
+        }
+
+            break;
         }
     }
 
