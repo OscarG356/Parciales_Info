@@ -22,8 +22,11 @@ int main()
             //Datos apropiados
             float distancia=45,altura=4.4; //Posicion del cañon
             float Xo=0, Vo=20, Ang_o=50; //Datos enviado por el espia defensor
+            int soluciones=0;
             //Calculos
-
+            for(float i=0;;i++){
+                for(float j=0;;j++)
+            }
         }
 
             break;
