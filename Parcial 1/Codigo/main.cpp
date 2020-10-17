@@ -16,12 +16,12 @@ int main()
         cout<<"0) Salir del simulador"<<endl;
         cin>>simulacion;
         //Una vez se haya un lanzamiento enemiga
-        float Xo=0, Vo=0, Ang_o=0,distancia=0; //Datos enviado por el espia defensor
+
         switch(simulacion){
         case 1:{
             //Datos apropiados
-            distancia = 45;
-
+            float distancia=45,altura=4.4; //Posicion del cañon
+            float Xo=0, Vo=20, Ang_o=50; //Datos enviado por el espia defensor
             //Calculos
 
         }
