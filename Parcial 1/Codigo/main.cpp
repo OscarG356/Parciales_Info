@@ -24,7 +24,7 @@ int main()
             int d=600,soluciones=0;
             float g=9.8;
             //Datos del cañon defensor
-                float xd=d,hd=100;
+                float xd=d,hd=10;
                 float dD=0.025*d;
             //Datos del cañor ofensivo
                 float angulo=50,dO,rad;
@@ -42,7 +42,40 @@ int main()
                     y=yo+vy*t-(0.5*g*pow(t,2));
                     if(distancia(x,y,xd,hd)<=dO){
                         soluciones+=1;
-                        cout<<"Disparo efectivo con:"<<endl<<"Angulo: "<<angulo<<endl<<"Velocidad inicial: "<<vel<<endl<<"Tiempo: "<<t<<endl;
+                        cout<<"\nDisparo efectivo con:"<<endl<<"Angulo: "<<angulo<<" grados"<<endl<<"Velocidad inicial: "<<vel<<"m/s"<<endl<<"Tiempo: "<<t<<"s"<<endl;
+                        if(soluciones==3){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+            break;
+        //Reutilizo el codigo anterior, pero con unos ligeros cambios
+
+        case 2:{
+            int d=-600,soluciones=0;
+            float g=9.8;
+            //Datos del cañon defensor
+                float xd=d,hd=100;
+                float dD=0.025*d;
+            //Datos del cañor ofensivo
+                float angulo=130,dO,rad;
+                int ho=100,yo,xo=0;
+                dO=0.05*d;
+                rad= (angulo*M_PI)/180;
+                yo=ho;
+            //Calculos
+            float vx,vy,x,y;
+            for(int vel=1;vel<1000;vel++){
+                vx= vel*cos(rad);
+                vy=vel*sin(rad);
+                for(int t=1;t<1000;t++){
+                    x=vx*t;
+                    y=yo+vy*t-(0.5*g*pow(t,2));
+                    if(distancia(x,y,xd,hd)<=dO){
+                        soluciones+=1;
+                        cout<<"\nDisparo efectivo con:"<<endl<<"Angulo: "<<angulo<<endl<<"Velocidad inicial: "<<vel<<endl<<"Tiempo: "<<t<<endl;
                         if(soluciones==3){
                             break;
                         }
