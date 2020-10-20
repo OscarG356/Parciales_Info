@@ -4,7 +4,6 @@
 using namespace std;
 
 float distancia(float,float,float,float);
-void ofensivo(float,float,float,float,float,float,int,float*,float*);
 
 bool simulando=true;
 int main()
@@ -84,54 +83,8 @@ int main()
                 }
             }
         }
-        case 3:{
-            int d=600,soluciones=0;
-            float g=9.8;
-            //Datos del cañon defensor
-                float xd=d,hd=10;
-                float dD=0.025*d;
-            //Datos del cañor ofensivo
-                float angulo=50,dO,rad;
-                int ho=100,yo,xo=0;
-                dO=0.05*d;
-                yo=ho;
-            //Calculos
-            //Disparo ofensivo
-            rad= (angulo*M_PI)/180;
-            float vx,vy,x,y;
-            for(int vel=1;vel<1000;vel++){
-                vx= vel*cos(rad);
-                vy=vel*sin(rad);
-                for(int t=1;t<1000;t++){
-                    x=vx*t;
-                    y=yo+vy*t-(0.5*g*pow(t,2));
-                    if(distancia(x,y,xd,hd)<=dO){
-                        soluciones+=1;
-                    }
-                    if(soluciones==1){
-                        float *Xcanon=&x, *Ycanon=&y;
-                        break;
-                    }
-                }
-            }
-            //Disparos defensivos
-            rad= (angulo*M_PI)/180;
-            for(float vel=1;vel<1000;vel+=0.5){
-                vx= vel*cos(rad);
-                vy=vel*sin(rad);
-                for(int t=0;t<1000;t++){
-                    x= d+vx*t;
-                    y=hd+vy*t-(0.5*g*pow(t,2));
-                    if (distancia(x,y, *Xcanon, *Ycanon)<=dD){//Ahora el daño es del cañon defensor
-                        soluciones+=1;
-                    }
-                    if(soluciones==3){
-                        break;
-                    }
-                }
-            }
-        }
             break;
+
         default:{
             cout<<"Opcion invalida, intente de nuevo."<<endl;
         }
@@ -150,27 +103,4 @@ float distancia(float x1, float y1, float x2, float y2)
 {
     float dist = sqrt(pow(x2-x1,2) + pow(y2-y1,2));
     return dist;
-}
-
-void ofensivo(float angulo,float g,float xd,float hd,float dO,float yo,int solu)
-{
-    int soluciones =0;
-    float rad= (angulo*M_PI)/180;
-    float vx,vy,x,y;
-    for(int vel=1;vel<1000;vel++){
-        vx= vel*cos(rad);
-        vy=vel*sin(rad);
-        for(int t=1;t<1000;t++){
-            x=vx*t;
-            y=yo+vy*t-(0.5*g*pow(t,2));
-            if(distancia(x,y,xd,hd)<=dO){
-                soluciones+=1;
-                cout<<"\nDisparo efectivo con:"<<endl<<"Angulo: "<<angulo<<" grados"<<endl<<"Velocidad inicial: "<<vel<<"m/s"<<endl<<"Tiempo: "<<t<<"s"<<endl;
-            }
-            if(soluciones==solu){
-                break;
-            }
-
-        }
-    }
 }
