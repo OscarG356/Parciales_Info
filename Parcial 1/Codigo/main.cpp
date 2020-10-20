@@ -13,8 +13,6 @@ int main()
         cout<<"*******Bienvenido a la simulacion*******"<<endl;
         cout<<"1) Generar disparos tres ofensivos que comprometan la integridad del canon defensivo."<<endl;
         cout<<"2) Generar disparos tres defensivos que comprometan la integridad del canon ofensivo."<<endl;
-        cout<<"3) Dado un disparo ofensivo, generar tres disparos defensivos que impida que el canon defensivo sea destruido sin importar si el canon ofensivo pueda ser destruido."<<endl;
-        cout<<"4) Dado un disparo ofensivo, generar tres disparo defensivos que impidan que los canones defensivo y ofensivo puedan ser destruidos."<<endl;
         cout<<"0) Salir del simulador"<<endl;
         cout<<"Ingrese una opcion: ";
         cin>>simulacion;
