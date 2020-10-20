@@ -14,7 +14,7 @@ int main()
         cout<<"1) Generar disparos tres ofensivos que comprometan la integridad del canon defensivo."<<endl;
         cout<<"2) Generar disparos tres defensivos que comprometan la integridad del canon ofensivo."<<endl;
         cout<<"3) Dado un disparo ofensivo, generar tres disparos defensivos que impida que el canon defensivo sea destruido sin importar si el canon ofensivo pueda ser destruido."<<endl;
-        cout<<"4) Dado un disparo ofensivo, generar tres disparo defensivos que impidan que los cañones defensivo y ofensivo puedan ser destruidos."<<endl;
+        cout<<"4) Dado un disparo ofensivo, generar tres disparo defensivos que impidan que los canones defensivo y ofensivo puedan ser destruidos."<<endl;
         cout<<"0) Salir del simulador"<<endl;
         cout<<"Ingrese una opcion: ";
         cin>>simulacion;
@@ -27,18 +27,19 @@ int main()
                 float xd=d,hd=100;
                 float dD=0.025*d;
             //Datos del cañor ofensivo
-                float angulo=50,dO;
+                float angulo=50,dO,rad;
                 int ho=100,yo,xo=0;
                 dO=0.05*d;
+                rad= (angulo*M_PI)/180;
                 yo=ho;
             //Calculos
             float vx,vy,x,y;
             for(int vel=1;vel<1000;vel++){
-                vx= vel*cos(angulo);
-                vy=vel*sin(angulo);
+                vx= vel*cos(rad);
+                vy=vel*sin(rad);
                 for(int t=1;t<1000;t++){
                     x=vx*t;
-                    y=yo+vy*t-(0.5*g*t*t);
+                    y=yo+vy*t-(0.5*g*pow(t,2));
                     if(distancia(x,y,xd,hd)<=dO){
                         soluciones+=1;
                         cout<<"Disparo efectivo con:"<<endl<<"Angulo: "<<angulo<<endl<<"Velocidad inicial: "<<vel<<endl<<"Tiempo: "<<t<<endl;
@@ -56,10 +57,10 @@ int main()
             break;
         case 0:{
             cout<<"Hasta luego :D"<<endl;
+            simulando=false;
             break;
         }
         }
-        break;
     }
     return 0;
 }
