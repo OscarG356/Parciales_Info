@@ -30,9 +30,9 @@ int main()
                 float angulo=50,dO,rad;
                 int ho=100,yo,xo=0;
                 dO=0.05*d;
-                rad= (angulo*M_PI)/180;
                 yo=ho;
             //Calculos
+            rad= (angulo*M_PI)/180;
             float vx,vy,x,y;
             for(int vel=1;vel<1000;vel++){
                 vx= vel*cos(rad);
@@ -43,9 +43,9 @@ int main()
                     if(distancia(x,y,xd,hd)<=dO){
                         soluciones+=1;
                         cout<<"\nDisparo efectivo con:"<<endl<<"Angulo: "<<angulo<<" grados"<<endl<<"Velocidad inicial: "<<vel<<"m/s"<<endl<<"Tiempo: "<<t<<"s"<<endl;
-                        if(soluciones==3){
-                            break;
-                        }
+                    }
+                    if(soluciones==3){
+                        break;
                     }
                 }
             }
@@ -54,31 +54,31 @@ int main()
         //Reutilizo el codigo anterior, pero con unos ligeros cambios
 
         case 2:{
-            int d=-600,soluciones=0;
+            int d=600,soluciones=0;
             float g=9.8;
             //Datos del cañon defensor
                 float xd=d,hd=100;
                 float dD=0.025*d;
             //Datos del cañor ofensivo
-                float angulo=130,dO,rad;
+                float angulo=130,dO,rad; //Ahora dispara el cañon defensor, por lo que el angulo cambia a el inverso.
                 int ho=100,yo,xo=0;
                 dO=0.05*d;
-                rad= (angulo*M_PI)/180;
                 yo=ho;
             //Calculos
+            rad= (angulo*M_PI)/180;
             float vx,vy,x,y;
-            for(int vel=1;vel<1000;vel++){
+            for(float vel=1;vel<1000;vel+=0.5){
                 vx= vel*cos(rad);
                 vy=vel*sin(rad);
-                for(int t=1;t<1000;t++){
-                    x=vx*t;
-                    y=yo+vy*t-(0.5*g*pow(t,2));
-                    if(distancia(x,y,xd,hd)<=dO){
+                for(int t=0;t<1000;t++){
+                    x= d+vx*t;
+                    y=hd+vy*t-(0.5*g*pow(t,2));
+                    if(distancia(x,y,xo,ho)<=dD){//Ahora el daño es del cañon defensor
                         soluciones+=1;
                         cout<<"\nDisparo efectivo con:"<<endl<<"Angulo: "<<angulo<<endl<<"Velocidad inicial: "<<vel<<endl<<"Tiempo: "<<t<<endl;
-                        if(soluciones==3){
-                            break;
-                        }
+                    }
+                    if(soluciones==3){
+                        break;
                     }
                 }
             }
